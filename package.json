@@ -1,0 +1,65 @@
+{
+  "name": "sinon-mocha-test",
+  "version": "0.1.0",
+  "description": "Automatic Sinon sandbox for Mocha tests",
+  "type": "module",
+  "main": "./build/es5/index.cjs",
+  "engines": {
+    "node": ">=8"
+  },
+  "exports": {
+    "import": "./build/index.js",
+    "require": "./build/es5/index.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:peterjwest/sinon-mocha-test.git"
+  },
+  "files": [
+    "/build"
+  ],
+  "author": "Peter West",
+  "bugs": {
+    "url": "https://github.com/peterjwest/sinon-mocha-test/issues"
+  },
+  "keywords": [
+    "sinon",
+    "mocha",
+    "tests",
+    "test",
+    "unit",
+    "mock",
+    "stub",
+    "spy"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/peterjwest/sinon-mocha-test#readme",
+  "scripts": {
+    "audit-dependencies": "yarn audit; [[ $? -ge 4 ]] && exit 1 || exit 0",
+    "build": "yarn build:es6 && yarn build:es5",
+    "build:es6": "tsc --project tsconfig-build.json",
+    "build:es5": "rm -rf build/es5 && tsc --project tsconfig-build-es5.json && renamer --find .js --replace .cjs build/es5/**",
+    "lint:ts": "tslint --format verbose --project tsconfig.json",
+    "test:coverage": "rm -rf coverage && NODE_DEBUG=nyc nyc mocha 'tests/**/*.ts'",
+    "test:unit": "mocha --require ts-node/register 'tests/**/*.ts'"
+  },
+  "dependencies": {
+    "sinon": "^9.0.2"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.32",
+    "@types/mocha": "5.2.7",
+    "@types/node": "^14.0.6",
+    "@types/sinon": "^9.0.4",
+    "bluebird": "^3.7.2",
+    "mocha": "^6.1.4",
+    "mocha-circleci-reporter": "^0.0.3",
+    "nyc": "14.1.1",
+    "renamer": "1.1.4",
+    "ts-node": "8.4.1",
+    "tslint": "5.20.0",
+    "tslint-eslint-rules": "5.4.0",
+    "typescript": "3.5.2",
+    "typescript-tslint-plugin": "0.5.4"
+  }
+}

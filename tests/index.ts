@@ -16,14 +16,14 @@ describe('sinonTest', () => {
 
   it('Rejects if the callback rejects', async function() {
     await assert.rejects(
-      sinonTest(() => Promise.reject(new Error('Callback error'))).call(this),
+      () => sinonTest(() => Promise.reject(new Error('Callback error'))).call(this),
       new Error('Callback error'),
     );
   });
 
   it('Rejects if the callback throws', async function() {
     await assert.rejects(
-      sinonTest(() => {
+      () => sinonTest(() => {
         throw new Error('Callback error');
       }).call(this),
       new Error('Callback error'),
@@ -57,7 +57,7 @@ describe('sinonTest', () => {
       throw new Error('Callback error');
     };
 
-    await assert.rejects(sinonTest(callback).call(this), new Error('Callback error'));
+    await assert.rejects(() => sinonTest(callback).call(this), new Error('Callback error'));
     assert.strictEqual(dependency.property, originalProperty);
   });
 
@@ -86,14 +86,14 @@ describe('sinonTest.create', () => {
 
   it('Also rejects if the callback rejects', async function() {
     await assert.rejects(
-      sinonTest.create({}, () => Promise.reject(new Error('Callback error'))).call(this),
+      () => sinonTest.create({}, () => Promise.reject(new Error('Callback error'))).call(this),
       new Error('Callback error'),
     );
   });
 
   it('Also rejects if the callback throws', async function() {
     await assert.rejects(
-      sinonTest.create({}, () => {
+      () => sinonTest.create({}, () => {
         throw new Error('Callback error');
       }).call(this),
       new Error('Callback error'),

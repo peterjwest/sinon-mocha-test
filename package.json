@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Automatic Sinon sandbox for Mocha tests",
   "type": "module",
-  "main": "./build/es5/index.cjs",
+  "main": "./build/index.jss",
   "engines": {
     "node": ">=8"
   },

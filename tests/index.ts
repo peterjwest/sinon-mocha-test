@@ -1,5 +1,5 @@
-import { delay } from 'bluebird';
-import * as sinon from 'sinon';
+import Bluebird from 'bluebird';
+import sinon from 'sinon';
 import assert from 'assert';
 
 import sinonTest from '../src/index';
@@ -37,7 +37,7 @@ describe('sinonTest', () => {
     const callback = async (sinon: sinon.SinonSandbox) => {
       const stub = sinon.stub(dependency, 'property');
       sinon.clock.restore();
-      await delay(10);
+      await Bluebird.delay(10);
       assert.strictEqual(dependency.property, stub);
     };
 
@@ -52,7 +52,7 @@ describe('sinonTest', () => {
     const callback = async (sinon: sinon.SinonSandbox) => {
       const stub = sinon.stub(dependency, 'property');
       sinon.clock.restore();
-      await delay(10);
+      await Bluebird.delay(10);
       assert.strictEqual(dependency.property, stub);
       throw new Error('Callback error');
     };
@@ -72,7 +72,7 @@ describe('sinonTest', () => {
 describe('sinonTest.create', () => {
   it('Configures the sandbox as specified', async function() {
     await sinonTest.create({ useFakeTimers: false }, async () => {
-      await delay(10);
+      await Bluebird.delay(10);
     }).call(this);
   });
 

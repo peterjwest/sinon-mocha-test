@@ -81,21 +81,38 @@ commands:
           name: Audit production dependencies
           command: yarn audit-dependencies
 
+  build:
+    steps:
+      - run:
+          name: Build project
+          command: yarn build
+
   tests:
     steps:
       - run:
-          name: Unit tests
+          name: TS Unit tests
           command: yarn test:coverage
       - store_artifacts:
           path: coverage
       - store_test_results:
           path: ~/test-results/
 
+  tests-es5:
+    steps:
+      - run:
+          name: ES5 Unit tests
+          command: yarn test:unit:es5
+
+  tests-es6:
+    steps:
+      - run:
+          name: ES6 Unit tests
+          command: yarn test:unit:es6
 
 jobs:
   checks:
     docker:
-      - image: *node-10
+      - image: *node-14
     steps:
       - checkout
       - install-dependencies
@@ -107,7 +124,9 @@ jobs:
     steps:
       - checkout
       - install-dependencies
+      - build
       - tests
+      - tests-es5
 
   test-node-10:
     docker:
@@ -115,7 +134,9 @@ jobs:
     steps:
       - checkout
       - install-dependencies
+      - build
       - tests
+      - tests-es5
 
   test-node-12:
     docker:
@@ -123,7 +144,9 @@ jobs:
     steps:
       - checkout
       - install-dependencies
+      - build
       - tests
+      - tests-es5
 
   test-node-14:
     docker:
@@ -131,7 +154,10 @@ jobs:
     steps:
       - checkout
       - install-dependencies
+      - build
       - tests
+      - tests-es5
+      - tests-es6
       - coveralls/upload
 
   checks-latest:
@@ -148,7 +174,9 @@ jobs:
     steps:
       - checkout
       - install-dependencies-latest
+      - build
       - tests
+      - tests-es5
 
   test-node-10-latest:
     docker:
@@ -156,7 +184,9 @@ jobs:
     steps:
       - checkout
       - install-dependencies-latest
+      - build
       - tests
+      - tests-es5
 
   test-node-12-latest:
     docker:
@@ -164,7 +194,9 @@ jobs:
     steps:
       - checkout
       - install-dependencies-latest
+      - build
       - tests
+      - tests-es5
 
   test-node-14-latest:
     docker:
@@ -172,7 +204,10 @@ jobs:
     steps:
       - checkout
       - install-dependencies-latest
+      - build
       - tests
+      - tests-es5
+      - tests-es6
 
 workflows:
   version: 2

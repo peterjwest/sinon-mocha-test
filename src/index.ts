@@ -1,5 +1,5 @@
 import { Context } from 'mocha';
-import * as sinon from 'sinon';
+import sinon from 'sinon';
 
 /** Callback to be provided to sinonTest */
 type Callback = (this: Context, sandbox: sinon.SinonSandbox) => Promise<void> | void;

@@ -49,18 +49,18 @@
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.32",
-    "@types/mocha": "5.2.7",
-    "@types/node": "^14.0.6",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^14.0.13",
     "@types/sinon": "^9.0.4",
     "bluebird": "^3.7.2",
     "mocha": "^7.2.0",
     "mocha-circleci-reporter": "^0.0.3",
-    "nyc": "14.1.1",
-    "renamer": "1.1.4",
-    "ts-node": "8.4.1",
-    "tslint": "5.20.0",
-    "tslint-eslint-rules": "5.4.0",
-    "typescript": "3.5.2",
-    "typescript-tslint-plugin": "0.5.4"
+    "nyc": "^15.1.0",
+    "renamer": "^1.1.4",
+    "ts-node": "^8.4.1",
+    "tslint": "^6.1.2",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^3.9.5",
+    "typescript-tslint-plugin": "^0.5.4"
   }
 }

@@ -5,6 +5,7 @@
     "src/index.ts"
   ],
   "compilerOptions": {
+    "outDir": "build/es6",
     "module": "es6",
   }
 }

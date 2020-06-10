@@ -2,14 +2,13 @@
   "name": "sinon-mocha-test",
   "version": "1.0.2",
   "description": "Automatic Sinon sandbox for Mocha tests",
-  "type": "module",
-  "main": "./build/index.js",
+  "main": "./build/es6/index.mjs",
+  "exports": {
+    "import": "./build/es6/index.mjs",
+    "require": "./build/es5/index.cjs"
+  },
   "engines": {
     "node": ">=8"
-  },
-  "exports": {
-    "import": "./build/index.js",
-    "require": "./build/es5/index.cjs"
   },
   "repository": {
     "type": "git",
@@ -37,7 +36,7 @@
   "scripts": {
     "audit-dependencies": "yarn audit; [[ $? -ge 4 ]] && exit 1 || exit 0",
     "build": "yarn build:es6 && yarn build:es5",
-    "build:es6": "tsc --project tsconfig-build.json",
+    "build:es6": "rm -rf build/es6 && tsc --project tsconfig-build-es6.json && renamer --find .js --replace .mjs build/es6/**",
     "build:es5": "rm -rf build/es5 && tsc --project tsconfig-build-es5.json && renamer --find .js --replace .cjs build/es5/**",
     "lint:ts": "tslint --format verbose --project tsconfig.json",
     "test:coverage": "rm -rf coverage && NODE_DEBUG=nyc nyc mocha 'tests/**/*.ts'",
@@ -52,7 +51,7 @@
     "@types/node": "^14.0.6",
     "@types/sinon": "^9.0.4",
     "bluebird": "^3.7.2",
-    "mocha": "^6.1.4",
+    "mocha": "^7.2.0",
     "mocha-circleci-reporter": "^0.0.3",
     "nyc": "14.1.1",
     "renamer": "1.1.4",

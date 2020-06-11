@@ -3,9 +3,10 @@
   "version": "1.0.4",
   "description": "Automatic Sinon sandbox for Mocha tests",
   "main": "./build/es6/index.js",
+  "type": "module",
   "exports": {
     "import": "./build/es6/index.mjs",
-    "require": "./build/es5/index.cjs"
+    "require": "./build/es5/index.js"
   },
   "engines": {
     "node": ">=8"
@@ -36,13 +37,13 @@
   "scripts": {
     "audit-dependencies": "yarn audit; [[ $? -ge 4 ]] && exit 1 || exit 0",
     "build": "yarn build:es6 && yarn build:es5",
-    "build:es6": "rm -rf build/es6 && tsc --project tsconfig-build-es6.json && renamer --find .js --replace .mjs build/es6/**",
+    "build:es6": "rm -rf build/es6 && tsc --project tsconfig-build-es6.json",
     "build:es5": "rm -rf build/es5 && tsc --project tsconfig-build-es5.json && renamer --find .js --replace .cjs build/es5/**",
     "lint:ts": "tslint --format verbose --project tsconfig.json",
     "test:coverage": "rm -rf coverage && NODE_DEBUG=nyc nyc mocha 'tests/**/*.ts'",
     "test:unit": "mocha --require ts-node/register 'tests/**/*.ts'",
-    "test:unit:es5": "mocha 'tests/*.js'",
-    "test:unit:es6": "mocha 'tests/*.mjs'"
+    "test:unit:es5": "mocha 'tests/*.cjs'",
+    "test:unit:es6": "mocha 'tests/*.js'"
   },
   "dependencies": {
     "sinon": "^9.0.2"

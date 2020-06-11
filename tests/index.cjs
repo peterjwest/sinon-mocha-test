@@ -1,7 +1,7 @@
-import Bluebird from 'bluebird';
-import assert from 'assert';
+const Bluebird = require('bluebird');
+const assert = require('assert');
 
-import sinonTest from '../build/es6/index.mjs';
+const sinonTest = require('../build/es5/index.cjs').default;
 
 // "You're very clever, young man, very clever, but it's turtles all the way down!"
 describe('sinonTest', () => {

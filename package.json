@@ -1,6 +1,6 @@
 {
   "name": "sinon-mocha-test",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Automatic Sinon sandbox for Mocha tests",
   "main": "./build/es6/index.js",
   "type": "module",

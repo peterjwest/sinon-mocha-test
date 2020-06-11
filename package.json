@@ -5,8 +5,8 @@
   "main": "./build/es6/index.js",
   "type": "module",
   "exports": {
-    "import": "./build/es6/index.mjs",
-    "require": "./build/es5/index.js"
+    "import": "./build/es6/index.js",
+    "require": "./build/es5/index.cjs"
   },
   "engines": {
     "node": ">=8"

@@ -2,7 +2,7 @@
   "name": "sinon-mocha-test",
   "version": "1.0.3",
   "description": "Automatic Sinon sandbox for Mocha tests",
-  "main": "./build/es6/index.mjs",
+  "main": "./build/es6/index.js",
   "exports": {
     "import": "./build/es6/index.mjs",
     "require": "./build/es5/index.cjs"

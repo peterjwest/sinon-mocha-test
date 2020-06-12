@@ -13,11 +13,11 @@ references:
   yarn-backup-cache-key-no-branch: &yarn-backup-cache-key-no-branch
     v1-dependency-yarn-
   node-10: &node-10
-    circleci/node:10.17.0
+    circleci/node:10.19.0
   node-12: &node-12
-    circleci/node:12.13.0
+    circleci/node:12.18.0
   node-14: &node-14
-    circleci/node:14.3.0
+    circleci/node:14.4.0
   node-10-latest: &node-10-latest
     circleci/node:10
   node-12-latest: &node-12-latest

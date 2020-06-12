@@ -149,7 +149,7 @@ jobs:
 
   checks-latest:
     docker:
-      - image: *node-10
+      - image: *node-14
     steps:
       - checkout
       - install-dependencies-latest

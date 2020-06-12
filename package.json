@@ -8,7 +8,7 @@
     "require": "./build/wrapper.js"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "repository": {
     "type": "git",

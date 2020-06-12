@@ -133,6 +133,7 @@ jobs:
       - build
       - tests
       - tests-es5
+      - tests-es6
 
   test-node-14:
     docker:

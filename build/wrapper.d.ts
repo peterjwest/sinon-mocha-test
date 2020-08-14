@@ -1,2 +1,2 @@
-import sinonTest from './es5/index';
-export = sinonTest;
+import defaultImport from './es5/index';
+export = defaultImport;

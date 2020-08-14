@@ -42,7 +42,8 @@
     "test:coverage": "rm -rf coverage && NODE_DEBUG=nyc nyc mocha 'tests/**/*.ts'",
     "test:unit": "mocha --require ts-node/register 'tests/**/*.ts'",
     "test:unit:es5": "mocha 'tests/*.cjs'",
-    "test:unit:es6": "mocha 'tests/*.mjs'"
+    "test:unit:es6": "mocha 'tests/*.mjs'",
+    "test:snippets": "test-snippets"
   },
   "dependencies": {
     "sinon": "^9.0.2"
@@ -56,6 +57,7 @@
     "mocha": "^7.2.0",
     "nyc": "^15.1.0",
     "renamer": "^1.1.4",
+    "test-snippets": "^0.1.0",
     "ts-node": "^8.4.1",
     "tslint": "^6.1.2",
     "tslint-eslint-rules": "^5.4.0",

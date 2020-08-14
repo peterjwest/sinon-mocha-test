@@ -16,18 +16,19 @@ yarn add sinon-mocha-test
 
 ## Usage
 
+<!-- snippet: ts,es6 -->
 ```js
 import fs from 'fs';
 import assert from 'assert';
 import sinonTest from 'sinon-mocha-test';
 
-// Example function to test
+/** Example function to test */
 async function readJsonFile(path) {
   return JSON.parse((await fs.promises.readFile(path)).toString());
 }
 
 describe('readJsonFile', () => {
-  it('Resolves with the data from a JSON file', sinonTest(async function(sinon) {
+  it('Resolves with the data from a JSON file', sinonTest(async (sinon) => {
     const readFile = sinon.stub(fs.promises, 'readFile').resolves('{"version":"123"}\n');
     assert.deepStrictEqual(await readJsonFile('file.json'), { version: '123' });
     assert.strictEqual(readFile.callCount, 1);
@@ -39,18 +40,19 @@ describe('readJsonFile', () => {
 
 Use `sinonTest.create` to specify custom Sinon sandbox options:
 
+<!-- snippet: ts,es6 -->
 ```js
 import sinonTest from 'sinon-mocha-test';
 
-// Example function to test
+/** Example function to test */
 async function delay(time) {
   return new Promise((resolve) => {
     setTimeout(resolve, time);
-  })
+  });
 }
 
 describe('delay', () => {
-  it('Resolves after a delay', sinonTest.create({ useFakeTimers: false }, async function(sinon) {
+  it('Resolves after a delay', sinonTest.create({ useFakeTimers: false }, async (sinon) => {
     await delay(10);
   }));
 });
@@ -58,6 +60,7 @@ describe('delay', () => {
 
 ### With CommonJS / require()
 
+<!-- snippet: js -->
 ```js
 const assert = require('assert');
 const sinonTest = require('sinon-mocha-test');

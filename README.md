@@ -87,5 +87,5 @@ describe('logger', () => {
 [circle-badge]: https://circleci.com/gh/peterjwest/sinon-mocha-test.svg?style=shield
 [circle-url]: https://circleci.com/gh/peterjwest/sinon-mocha-test
 
-[coverage-badge]: https://coveralls.io/repos/peterjwest/sinon-mocha-test/badge.svg?branch=master&service=github
-[coverage-url]: https://coveralls.io/github/peterjwest/sinon-mocha-test?branch=master
+[coverage-badge]: https://coveralls.io/repos/peterjwest/sinon-mocha-test/badge.svg?branch=main&service=github
+[coverage-url]: https://coveralls.io/github/peterjwest/sinon-mocha-test?branch=main

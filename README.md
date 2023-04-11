@@ -10,12 +10,6 @@ A utility function which wraps a test and automatically removes mocks.
 npm install sinon-mocha-test
 ```
 
-or
-
-```bash
-yarn add sinon-mocha-test
-```
-
 ## Usage
 
 <!-- snippet: es-mocha,ts-jest -->

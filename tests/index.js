@@ -1,7 +1,8 @@
+import { describe, it } from 'vitest';
 import Bluebird from 'bluebird';
 import assert from 'assert';
 
-import sinonTest from '../build/es6/index.mjs';
+import sinonTest from '../build/es6/index.js';
 
 // "You're very clever, young man, very clever, but it's turtles all the way down!"
 describe('sinonTest', () => {

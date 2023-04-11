@@ -1,8 +1,8 @@
 # sinon-mocha-test [![npm version][npm-badge]][npm-url] [![build status][circle-badge]][circle-url] [![coverage status][coverage-badge]][coverage-url]
 
-Automatic Sinon sandbox for Mocha tests in Javascript and Typescript.
+Automatic Sinon sandbox for Mocha/Jest/Vitest tests in Javascript and Typescript.
 
-A utility function which wraps a mocha tests and automatically removes mocks.
+A utility function which wraps a test and automatically removes mocks.
 
 ## Installation
 
@@ -18,20 +18,43 @@ yarn add sinon-mocha-test
 
 ## Usage
 
-<!-- snippet: ts,es6 -->
+<!-- snippet: es-mocha,ts-jest -->
 ```js
-import fs from 'fs';
+import { promises as fs } from 'fs';
 import assert from 'assert';
 import sinonTest from 'sinon-mocha-test';
 
 /** Example function to test */
 async function readJsonFile(path) {
-  return JSON.parse((await fs.promises.readFile(path)).toString());
+  return JSON.parse((await fs.readFile(path)).toString());
 }
 
 describe('readJsonFile', () => {
   it('Resolves with the data from a JSON file', sinonTest(async (sinon) => {
-    const readFile = sinon.stub(fs.promises, 'readFile').resolves('{"version":"123"}\n');
+    const readFile = sinon.stub(fs, 'readFile').resolves('{"version":"123"}\n');
+    assert.deepStrictEqual(await readJsonFile('file.json'), { version: '123' });
+    assert.strictEqual(readFile.callCount, 1);
+  }));
+});
+```
+
+Or with Vitest:
+
+<!-- snippet: ts-vite,es-vite -->
+```js
+import { it, describe } from 'vitest'
+import { promises as fs } from 'fs';
+import assert from 'assert';
+import sinonTest from 'sinon-mocha-test';
+
+/** Example function to test */
+async function readJsonFile(path) {
+  return JSON.parse((await fs.readFile(path)).toString());
+}
+
+describe('readJsonFile', () => {
+  it('Resolves with the data from a JSON file', sinonTest(async (sinon) => {
+    const readFile = sinon.stub(fs, 'readFile').resolves('{"version":"123"}\n');
     assert.deepStrictEqual(await readJsonFile('file.json'), { version: '123' });
     assert.strictEqual(readFile.callCount, 1);
   }));
@@ -42,7 +65,7 @@ describe('readJsonFile', () => {
 
 Use `sinonTest.create` to specify custom Sinon sandbox options:
 
-<!-- snippet: ts,es6 -->
+<!-- snippet: es-mocha,ts-jest -->
 ```js
 import sinonTest from 'sinon-mocha-test';
 
@@ -62,7 +85,7 @@ describe('delay', () => {
 
 ### With CommonJS / require()
 
-<!-- snippet: js -->
+<!-- snippet: js-mocha,js-jest -->
 ```js
 const assert = require('assert');
 const sinonTest = require('sinon-mocha-test');

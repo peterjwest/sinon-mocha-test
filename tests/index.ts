@@ -1,3 +1,4 @@
+import { describe, it } from 'vitest';
 import Bluebird from 'bluebird';
 import sinon from 'sinon';
 import assert from 'assert';

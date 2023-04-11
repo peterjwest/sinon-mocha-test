@@ -9,7 +9,9 @@ A utility function which wraps a mocha tests and automatically removes mocks.
 ```bash
 npm install sinon-mocha-test
 ```
+
 or
+
 ```bash
 yarn add sinon-mocha-test
 ```
@@ -79,7 +81,6 @@ describe('logger', () => {
   }));
 });
 ```
-
 
 [npm-badge]: https://badge.fury.io/js/sinon-mocha-test.svg
 [npm-url]: https://www.npmjs.com/package/sinon-mocha-test

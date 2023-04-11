@@ -1,2 +1,2 @@
-import defaultImport from './es5/index';
+import defaultImport from './code/index';
 export = defaultImport;

@@ -36,7 +36,7 @@ Or with Vitest:
 
 <!-- snippet: ts-vite,es-vite -->
 ```js
-import { it, describe } from 'vitest'
+import { test, describe } from 'vitest'
 import { promises as fs } from 'fs';
 import assert from 'assert';
 import sinonTest from 'sinon-mocha-test';
@@ -47,7 +47,11 @@ async function readJsonFile(path) {
 }
 
 describe('readJsonFile', () => {
-  it('Resolves with the data from a JSON file', sinonTest(async (sinon) => {
+  test('Resolves with the data from a JSON file', () => {
+    assert.strictEqual(1, 1);
+  });
+
+  test('Resolves with the data from a JSON file', sinonTest(async (sinon) => {
     const readFile = sinon.stub(fs, 'readFile').resolves('{"version":"123"}\n');
     assert.deepStrictEqual(await readJsonFile('file.json'), { version: '123' });
     assert.strictEqual(readFile.callCount, 1);

@@ -4,6 +4,5 @@
   "js-jest": { "extension": "cjs", "command": ["jest", "--config", "jest.config.json"] },
   "ts-jest": { "extension": "ts", "command": ["jest", "--config", "jest.config.json"] },
   "es-vite": { "extension": "mjs", "command": ["vitest", "run", "--config", "vite.config.ts"] },
-  "js-vite": { "extension": "cjs", "command": ["vitest", "run", "--config", "vite.config.ts"] },
   "ts-vite": { "extension": "ts", "command": ["vitest", "run", "--config", "vite.config.ts"] }
 }

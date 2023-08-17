@@ -3,7 +3,7 @@
   "version": "2.1.0",
   "description": "Automatic Sinon sandbox for Mocha tests",
   "type": "module",
-  "main": "./build/code.js",
+  "main": "./build/code/index.js",
   "exports": {
     "import": "./build/code/index.js",
     "require": "./build/wrapper.cjs"

@@ -8,16 +8,16 @@ import sinonTest from '../src/index';
 // "You're very clever, young man, very clever, but it's turtles all the way down!"
 describe('sinonTest', () => {
   it('Resolves if the callback resolves', async function() {
-    await sinonTest(async () => Promise.resolve()).call(this);
+    await sinonTest(async () => Promise.resolve()).call(undefined);
   });
 
   it('Resolves if the callback returns', async function() {
-    await sinonTest(() => undefined).call(this);
+    await sinonTest(() => undefined).call(undefined);
   });
 
   it('Rejects if the callback rejects', async function() {
     await assert.rejects(
-      () => sinonTest(() => Promise.reject(new Error('Callback error'))).call(this),
+      () => sinonTest(() => Promise.reject(new Error('Callback error'))).call(undefined),
       new Error('Callback error'),
     );
   });
@@ -26,7 +26,7 @@ describe('sinonTest', () => {
     await assert.rejects(
       () => sinonTest(() => {
         throw new Error('Callback error');
-      }).call(this),
+      }).call(undefined),
       new Error('Callback error'),
     );
   });
@@ -37,12 +37,11 @@ describe('sinonTest', () => {
 
     const callback = async (sinon: sinon.SinonSandbox) => {
       const stub = sinon.stub(dependency, 'property');
-      sinon.clock.restore();
       await Bluebird.delay(10);
       assert.strictEqual(dependency.property, stub);
     };
 
-    await sinonTest(callback).call(this);
+    await sinonTest(callback).call(undefined);
     assert.strictEqual(dependency.property, originalProperty);
   });
 
@@ -52,13 +51,12 @@ describe('sinonTest', () => {
 
     const callback = async (sinon: sinon.SinonSandbox) => {
       const stub = sinon.stub(dependency, 'property');
-      sinon.clock.restore();
       await Bluebird.delay(10);
       assert.strictEqual(dependency.property, stub);
       throw new Error('Callback error');
     };
 
-    await assert.rejects(() => sinonTest(callback).call(this), new Error('Callback error'));
+    await assert.rejects(() => sinonTest(callback).call(undefined), new Error('Callback error'));
     assert.strictEqual(dependency.property, originalProperty);
   });
 
@@ -74,20 +72,20 @@ describe('sinonTest.create', () => {
   it('Configures the sandbox as specified', async function() {
     await sinonTest.create({ useFakeTimers: false }, async () => {
       await Bluebird.delay(10);
-    }).call(this);
+    }).call(undefined);
   });
 
   it('Also resolves if the callback resolves', async function() {
-    await sinonTest.create({}, async () => Promise.resolve()).call(this);
+    await sinonTest.create({}, async () => Promise.resolve()).call(undefined);
   });
 
   it('Also resolves if the callback returns', async function() {
-    await sinonTest.create({}, () => undefined).call(this);
+    await sinonTest.create({}, () => undefined).call(undefined);
   });
 
   it('Also rejects if the callback rejects', async function() {
     await assert.rejects(
-      () => sinonTest.create({}, () => Promise.reject(new Error('Callback error'))).call(this),
+      () => sinonTest.create({}, () => Promise.reject(new Error('Callback error'))).call(undefined),
       new Error('Callback error'),
     );
   });
@@ -96,7 +94,7 @@ describe('sinonTest.create', () => {
     await assert.rejects(
       () => sinonTest.create({}, () => {
         throw new Error('Callback error');
-      }).call(this),
+      }).call(undefined),
       new Error('Callback error'),
     );
   });

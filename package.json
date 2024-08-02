@@ -40,7 +40,8 @@
     "test:coverage": "vitest run --coverage",
     "test:unit": "vitest run",
     "test:snippets": "test-snippets",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "prepublish": "pnpm install && pnpm build"
   },
   "dependencies": {
     "sinon": "^18.0.0"

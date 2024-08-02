@@ -1,0 +1,1 @@
+ignores: ["@babel/eslint-parser", "@total-typescript/ts-reset", "@vitest/coverage-v8", "jest", "tsx"]

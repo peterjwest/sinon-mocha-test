@@ -36,7 +36,7 @@
   "homepage": "https://github.com/peterjwest/sinon-mocha-test#readme",
   "scripts": {
     "build": "rm -rf build/code && tsup src/index.ts --format cjs,esm --dts --out-dir build/code",
-    "lint": "eslint .",
+    "lint:ts": "eslint",
     "test:coverage": "vitest run --coverage",
     "test:unit": "vitest run",
     "test:snippets": "test-snippets",

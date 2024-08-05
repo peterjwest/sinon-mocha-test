@@ -12,7 +12,7 @@ npm install sinon-mocha-test
 
 ## Usage
 
-<!-- snippet: es-mocha,ts-jest -->
+<!-- snippet: js-mocha,ts-jest -->
 ```js
 import { promises as fs } from 'fs';
 import assert from 'assert';
@@ -34,7 +34,7 @@ describe('readJsonFile', () => {
 
 Or with Vitest:
 
-<!-- snippet: ts-vite,es-vite -->
+<!-- snippet: ts-vite,js-vite -->
 ```js
 import { test, describe } from 'vitest'
 import { promises as fs } from 'fs';
@@ -63,7 +63,7 @@ describe('readJsonFile', () => {
 
 Use `sinonTest.create` to specify custom Sinon sandbox options:
 
-<!-- snippet: es-mocha,ts-jest -->
+<!-- snippet: js-mocha,ts-jest -->
 ```js
 import sinonTest from 'sinon-mocha-test';
 
@@ -83,7 +83,7 @@ describe('delay', () => {
 
 ### With CommonJS / require()
 
-<!-- snippet: js-mocha,js-jest -->
+<!-- snippet: cjs-mocha,cjs-jest -->
 ```js
 const assert = require('assert');
 const sinonTest = require('sinon-mocha-test');

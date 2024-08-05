@@ -1,8 +1,8 @@
 {
-  "es-mocha": { "extension": "mjs", "command": ["mocha"] },
-  "js-mocha": { "extension": "cjs", "command": ["mocha"] },
-  "js-jest": { "extension": "cjs", "command": ["jest", "--config", "jest.config.json"] },
+  "js-mocha": { "extension": "js", "command": ["mocha"] },
+  "cjs-mocha": { "extension": "cjs", "command": ["mocha"] },
+  "cjs-jest": { "extension": "cjs", "command": ["jest", "--config", "jest.config.json"] },
   "ts-jest": { "extension": "ts", "command": ["jest", "--config", "jest.config.json"] },
-  "es-vite": { "extension": "mjs", "command": ["vitest", "run", "--config", "vite.config.ts"] },
+  "js-vite": { "extension": "js", "command": ["vitest", "run", "--config", "vite.config.ts"] },
   "ts-vite": { "extension": "ts", "command": ["vitest", "run", "--config", "vite.config.ts"] }
 }

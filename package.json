@@ -46,33 +46,33 @@
     "prepublish": "pnpm install && pnpm build"
   },
   "dependencies": {
-    "sinon": "^18.0.0"
+    "sinon": "^18.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@babel/eslint-parser": "^7.25.1",
-    "@babel/preset-env": "^7.25.3",
+    "@babel/preset-env": "^7.25.4",
     "@babel/preset-typescript": "^7.24.7",
     "@eslint/eslintrc": "^3.1.0",
-    "@eslint/js": "^9.8.0",
+    "@eslint/js": "^9.11.1",
     "@total-typescript/ts-reset": "^0.5.1",
     "@types/bluebird": "^3.5.42",
-    "@types/mocha": "^10.0.7",
-    "@types/node": "^22.1.0",
+    "@types/mocha": "^10.0.8",
+    "@types/node": "^22.7.4",
     "@types/sinon": "^17.0.3",
-    "@typescript-eslint/eslint-plugin": "^8.0.1",
-    "@typescript-eslint/parser": "^8.0.1",
-    "@vitest/coverage-v8": "^2.0.5",
+    "@typescript-eslint/eslint-plugin": "^8.8.0",
+    "@typescript-eslint/parser": "^8.8.0",
+    "@vitest/coverage-v8": "^2.1.1",
     "bluebird": "^3.7.2",
     "depcheck": "^1.4.7",
-    "eslint": "^9.8.0",
+    "eslint": "^9.11.1",
     "jest": "^29.7.0",
     "mocha": "^10.7.3",
     "test-snippets": "^2.0.1",
-    "tsup": "^8.2.4",
-    "tsx": "^4.17.0",
-    "typescript": "^5.5.4",
+    "tsup": "^8.3.0",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2",
     "unlinted": "^2.0.1",
-    "vitest": "^2.0.5"
+    "vitest": "^2.1.1"
   }
 }
